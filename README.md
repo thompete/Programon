@@ -1,3 +1,3 @@
 # Programon
 
-A Pokémons combat-inspired, turn-based, console game written in Java.
+A Pokémon's combat-inspired, turn-based, console game written in Java.
