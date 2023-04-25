@@ -25,8 +25,8 @@ public abstract class StatusEffect implements Serializable {
         this.duration = duration;
         this.durationLeft = duration;
         this.creature = creature;
-        toRemove = false;
-        messageString = creature.getName() + " has status effect " + getName();
+        this.toRemove = false;
+        this.messageString = creature.getName() + " has status effect " + getName();
     }
 
     public static int getDuration() {

@@ -113,7 +113,7 @@ public enum CreatureType implements Serializable {
         baseCritMultiplier,
         baseSpecialPowerUses;
 
-    private CreatureType(String name, double basePower, double baseHealth, double baseAgility, double baseCritChance,
+    CreatureType(String name, double basePower, double baseHealth, double baseAgility, double baseCritChance,
                          double baseCritMultiplier, double baseSpecialPowerUses) {
         this.name = name;
         this.basePower = basePower;

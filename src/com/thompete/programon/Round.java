@@ -25,9 +25,9 @@ public class Round implements Serializable {
 
     public Outcome start() {
         Opponent opponent;
-        OpponentGenerator og = new OpponentGenerator(new NameGenerator(3, 5), game);
-        if (number < Constants.NUMBER_OF_ROUNDS - 1) opponent = og.generateOpponent();
-        else opponent = og.generateBoss();
+        OpponentGenerator opponentGenerator = new OpponentGenerator(new NameGenerator(3, 5), game);
+        if (number < Constants.NUMBER_OF_ROUNDS - 1) opponent = opponentGenerator.generateOpponent();
+        else opponent = opponentGenerator.generateBoss();
         game.setOpponent(opponent);
 
         Player player = game.getPlayer();
@@ -47,35 +47,35 @@ public class Round implements Serializable {
     }
 
     private Outcome loopTurns() {
-        Player pl = game.getPlayer(), op = game.getOpponent();
+        Player player = game.getPlayer(), opponent = game.getOpponent();
         Player firstPlayer, secondPlayer;
         int roll = Util.randomInRange(0, 1);
         if (roll == 0) {
             UI.print("You go first\n");
-            firstPlayer = pl;
-            secondPlayer = op;
+            firstPlayer = player;
+            secondPlayer = opponent;
         } else {
             UI.print("Your opponent goes first\n");
-            firstPlayer = op;
-            secondPlayer = pl;
+            firstPlayer = opponent;
+            secondPlayer = player;
         }
 
-        while (pl.isAlive() && op.isAlive()) {
+        while (player.isAlive() && opponent.isAlive()) {
             if (firstPlayer.isAlive()) {
                 firstPlayer.beginTurn(secondPlayer);
             } else {
-                if (firstPlayer == pl) return Outcome.LOST;
+                if (firstPlayer == player) return Outcome.LOST;
                 else return Outcome.WON;
             }
             if (secondPlayer.isAlive()) {
                 secondPlayer.beginTurn(firstPlayer);
             } else {
-                if (secondPlayer == pl) return Outcome.LOST;
+                if (secondPlayer == player) return Outcome.LOST;
                 else return Outcome.WON;
             }
         }
 
-        if (pl.isAlive()) return Outcome.WON;
+        if (player.isAlive()) return Outcome.WON;
         else return Outcome.LOST;
     }
 }

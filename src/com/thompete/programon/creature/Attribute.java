@@ -14,7 +14,7 @@ public class Attribute implements Serializable {
         this.name = name;
         this.defaultValue = defaultValue;
         this.isModifiableByPlayer = isModifiableByPlayer;
-        currentValue = defaultValue;
+        this.currentValue = defaultValue;
     }
 
     public Attribute(String name, double defaultValue) {
@@ -79,7 +79,7 @@ public class Attribute implements Serializable {
 
     @Override
     public String toString() {
-        return "" + Util.round(currentValue);
+        return String.valueOf(Util.round(currentValue));
     }
 }
 

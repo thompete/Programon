@@ -32,10 +32,6 @@ public class Player implements Serializable {
         return isAlive;
     }
 
-    public void setAlive(boolean alive) {
-        isAlive = alive;
-    }
-
     public int getRemainingRevitalizeUses() {
         return remainingRevitalizeUses;
     }

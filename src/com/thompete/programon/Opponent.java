@@ -15,7 +15,7 @@ public class Opponent extends Player {
     public Opponent(String title, String name, Game game) {
         super(name, game, 0);
         this.title = title;
-        changeCreatureCooldown = 0;
+        this.changeCreatureCooldown = 0;
     }
 
     public String getTitle() {

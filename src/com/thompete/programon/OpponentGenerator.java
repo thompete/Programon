@@ -33,9 +33,9 @@ public class OpponentGenerator {
 
     private Opponent generateOpponentCreatures(Opponent opponent, int numberOfCreatures) {
         List<Creature> generatedCreatures = new ArrayList<>();
-        CreatureGenerator cg = new CreatureGenerator(new NameGenerator(2, 4));
+        CreatureGenerator creatureGenerator = new CreatureGenerator(new NameGenerator(2, 4));
         for (int i = 0; i < numberOfCreatures; i++) {
-            generatedCreatures.add(cg.generateCreature());
+            generatedCreatures.add(creatureGenerator.generateCreature());
         }
         opponent.setCreatures(generatedCreatures);
         return opponent;

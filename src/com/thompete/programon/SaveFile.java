@@ -12,7 +12,7 @@ public class SaveFile implements Serializable {
         this.isEmpty = isEmpty;
         this.path = path;
         String[] splitPath = path.split("/");
-        name = splitPath[splitPath.length - 1];
+        this.name = splitPath[splitPath.length - 1];
     }
 
     public String getName() {
@@ -25,11 +25,7 @@ public class SaveFile implements Serializable {
 
     public void save(Game game) {
         isEmpty = false;
-
-        try (
-                FileOutputStream fos = new FileOutputStream(path);
-                ObjectOutputStream oos = new ObjectOutputStream(fos)
-        ) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path))) {
             oos.writeObject(game);
         } catch (Exception e) {
             e.printStackTrace();
@@ -38,16 +34,11 @@ public class SaveFile implements Serializable {
 
     public Game load() {
         Game game = null;
-
-        try (
-                FileInputStream fis = new FileInputStream(path);
-                ObjectInputStream ois = new ObjectInputStream(fis);
-        ) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path))) {
             game = (Game) ois.readObject();
         } catch (Exception e) {
             UI.print("File is empty\n");
         }
-
         return game;
     }
 

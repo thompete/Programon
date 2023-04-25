@@ -26,29 +26,29 @@ public abstract class Creature implements Serializable {
         this.name = name;
         this.type = type;
 
-        attributes = new ArrayList<>(List.of(power, health, agility, critChance, critMultiplier, specialPowerUses));
+        this.attributes = new ArrayList<>(List.of(power, health, agility, critChance, critMultiplier, specialPowerUses));
 
         double exp = 0;
-        for (Attribute attribute : attributes) {
+        for (Attribute attribute : this.attributes) {
             exp += attribute.getDefaultValue();
         }
-        double expVal = exp / attributes.size() * Constants.EXP_VALUE_CALCULATION_FACTOR;
+        double expVal = exp / this.attributes.size() * Constants.EXP_VALUE_CALCULATION_FACTOR;
         Attribute expValue = new Attribute("Exp value", expVal, false);
-        attributes.add(expValue);
+        this.attributes.add(expValue);
 
         double expToEvo = exp / attributes.size() * Constants.EXP_TO_EVOLUTION_CALCULATION_FACTOR;
         Attribute expToEvolution = new Attribute("Exp to evolution", expToEvo, false);
-        attributes.add(expToEvolution);
+        this.attributes.add(expToEvolution);
 
-        damageReduction = 0;
+        this.damageReduction = 0;
 
-        level = 0;
-        experience = 0;
-        isFainted = false;
-        canEvolve = false;
-        canMove = true;
+        this.level = 0;
+        this.experience = 0;
+        this.isFainted = false;
+        this.canEvolve = false;
+        this.canMove = true;
 
-        statusEffects = new ArrayList<>();
+        this.statusEffects = new ArrayList<>();
     }
 
     public abstract void performSpecialPower(Creature opponentCreature, boolean sourceIsPlayer);

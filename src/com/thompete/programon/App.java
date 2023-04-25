@@ -13,9 +13,9 @@ public class App implements Serializable {
     public App() {
         for (int i = 0; i < saveSlots.length; i++) {
             String path = "./saves/save" + (i + 1) + ".dat";
-            File f = new File(path);
-            if (!f.isDirectory()) {
-                if (f.exists()) saveSlots[i] = new SaveFile(path, false);
+            File file = new File(path);
+            if (!file.isDirectory()) {
+                if (file.exists()) saveSlots[i] = new SaveFile(path, false);
                 else saveSlots[i] = new SaveFile(path, true);
             }
         }
@@ -38,12 +38,13 @@ public class App implements Serializable {
     }
 
     private void loop() {
-        loop: while (true) {
+        boolean shouldExit = false;
+        while (!shouldExit) {
             switch (displayMainMenu()) {
                 case 0 -> newGame();
                 case 1 -> loadGame();
                 case 2 -> displayHelp();
-                case 3 -> { break loop; }
+                case 3 -> shouldExit = true;
             }
         }
     }

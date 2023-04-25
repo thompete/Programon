@@ -73,13 +73,13 @@ public class Game implements Serializable {
         player = new Player(name, this, Constants.getIntConstant("REVITALIZE_USES_" + difficulty.name()));
 
         List<Creature> generatedCreatures = new ArrayList<>();
-        CreatureGenerator cg = new CreatureGenerator(new NameGenerator(2, 4));
+        CreatureGenerator creatureGenerator = new CreatureGenerator(new NameGenerator(2, 4));
 
         int numberOfCreatures = Constants.NUMBER_OF_PLAYER_CREATURES;
         int toChooseFrom = Constants.NUMBER_OF_CREATURES_TO_CHOOSE_FROM;
 
         for (int i = 0; i < toChooseFrom; i++) {
-            generatedCreatures.add(cg.generateCreature());
+            generatedCreatures.add(creatureGenerator.generateCreature());
         }
 
         UI.print("Choose " + numberOfCreatures + " creatures out of " + toChooseFrom + ":\n");
@@ -88,7 +88,7 @@ public class Game implements Serializable {
         for (int i = 1; i <= numberOfCreatures; i++) {
             int chosen = UI.getChoice(
                     "Choose the " + i + (i == 1 ? "st" : i == 2 ? "nd" : i == 3 ? "rd" : "th") + " creature:\n",
-                    generatedCreatures.stream().map((Creature c) -> c.toString()).toList()
+                    generatedCreatures.stream().map(Creature::toString).toList()
             );
             chosenCreatures.add(generatedCreatures.get(chosen));
             generatedCreatures.remove(chosen);
