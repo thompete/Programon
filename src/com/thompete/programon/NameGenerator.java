@@ -5,9 +5,8 @@ import java.util.List;
 
 public class NameGenerator {
 
-    private int minLenth, maxLenght;
-    private List<String> vowels;
-    private List<String> consonants;
+    private final int minLenth, maxLenght;
+    private final List<String> vowels, consonants;
 
     public NameGenerator(int minLenth, int maxLenght, List<String> vowels, List<String> consonants) {
         this.minLenth = minLenth;

@@ -8,9 +8,9 @@ import java.util.List;
 
 public class OpponentGenerator {
 
-    private Game game;
-    private Game.Difficulty difficulty;
-    private NameGenerator nameGenerator;
+    private final Game game;
+    private final Game.Difficulty difficulty;
+    private final NameGenerator nameGenerator;
 
     public OpponentGenerator(NameGenerator nameGenerator, Game game) {
         this.difficulty = game.getDifficulty();

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Opponent extends Player {
 
-    private String title;
+    private final String title;
     private int changeCreatureCooldown;
 
     public Opponent(String title, String name, Game game) {

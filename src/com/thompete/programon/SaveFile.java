@@ -4,8 +4,8 @@ import java.io.*;
 
 public class SaveFile implements Serializable {
 
-    private String name;
-    private String path;
+    private final String name;
+    private final String path;
     private boolean isEmpty;
 
     public SaveFile(String path, boolean isEmpty) {

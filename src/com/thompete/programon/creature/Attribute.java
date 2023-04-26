@@ -6,9 +6,9 @@ import java.io.Serializable;
 
 public class Attribute implements Serializable {
 
-    private String name;
+    private final String name;
     private double defaultValue, currentValue;
-    private boolean isModifiableByPlayer;
+    private final boolean isModifiableByPlayer;
 
     public Attribute(String name, double defaultValue, boolean isModifiableByPlayer) {
         this.name = name;

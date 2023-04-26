@@ -13,8 +13,7 @@ public class UI {
     public static String getInput(String message) {
         System.out.println(message);
         Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        return input;
+        return scanner.nextLine();
     }
 
     public static int getChoice(String message, List<String> options) {

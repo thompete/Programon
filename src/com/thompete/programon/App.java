@@ -7,7 +7,7 @@ import java.util.List;
 public class App implements Serializable {
 
     private Game game;
-    private SaveFile[] saveSlots = new SaveFile[3];
+    private final SaveFile[] saveSlots = new SaveFile[3];
     private SaveFile saveFile;
 
     public App() {

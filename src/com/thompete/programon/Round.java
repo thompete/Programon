@@ -7,8 +7,8 @@ import java.util.List;
 
 public class Round implements Serializable {
 
-    private Game game;
-    private int number;
+    private final Game game;
+    private final int number;
 
     public enum Outcome {
         WON, LOST

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Game implements Serializable {
 
-    private App app;
+    private final App app;
     private Difficulty difficulty;
     private Player player;
     private Opponent opponent;

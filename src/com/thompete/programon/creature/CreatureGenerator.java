@@ -7,7 +7,7 @@ import com.thompete.programon.util.Util;
 
 public class CreatureGenerator {
 
-    private NameGenerator nameGenerator;
+    private final NameGenerator nameGenerator;
 
     public CreatureGenerator(NameGenerator nameGenerator) {
         this.nameGenerator = nameGenerator;
